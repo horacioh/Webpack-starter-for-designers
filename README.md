@@ -12,7 +12,7 @@ _Make your own folder structure._
 3. In terminal, cd to the folder containing your project. Alternatively, you can type cd and drag the location of the folder into your terminal and hit enter (on Macs).
 4. Type ``npm install``. If (and only if) npm install isn't working, try ``sudo npm install``. This should install all devDependencies.
 5. In terminal, enter ``npm start``.
-6. Open your browser at http://localhost:8080.
+6. Open your browser at ``http://localhost:8080``.
 7. Edit your code inside of the ``dev`` folder.
 8. For production enter ``webpack -p`` or add your command in ``package.json`` and minified css, and javascript files will be created and updated in ``public/``.
 
