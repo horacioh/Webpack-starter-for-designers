@@ -17,7 +17,7 @@ var lost = require('lost');
 
 module.exports = {
   context: pathConfig.context,
-  entry: ['./css/style', './js/App'],
+  entry: ['./css/styles', './js/App'],
   output: {
     path: pathConfig.assetsPath,
     filename: './js/bundle.js'
@@ -26,6 +26,13 @@ module.exports = {
     contentBase: 'public'
   },
   module: {
+    preLoaders: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader'
+      }
+    ],
     loaders: [
       {
         test: /\.js$/,
@@ -62,8 +69,11 @@ module.exports = {
       ]}),
     ];
   },
+  eslint: {
+    configFile: '.eslintrc'
+  },
   plugins: [
-    new ExtractTextPlugin('./css/style.css')
+    new ExtractTextPlugin('./css/styles.css')
   ],
   resolve: {
     extensions: ['', '.js', '.jsx', '.css']
