@@ -26,6 +26,7 @@
   "homepage": "https://github.com/ArmendGashi/Webpack-starter-for-designers",
   "devDependencies": {
     "autoprefixer": "^6.1.0",
+    "babel": "^5.8.29",
     "babel-core": "^6.1.2",
     "babel-loader": "^6.0.1",
     "css-loader": "^0.22.0",
