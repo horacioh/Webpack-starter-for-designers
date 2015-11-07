@@ -57,3 +57,5 @@ _Make your own folder structure._
 #### Bugs & Support
 
 [@numproc](https://twitter.com/numproc "Armend Gashi") Please list all bugs and feature requests in the Github issue tracker.
+
+Do what you'd like with it :)
