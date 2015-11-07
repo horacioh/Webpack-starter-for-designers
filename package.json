@@ -1,26 +1,29 @@
 {
-  "name": "lumibet",
+  "name": "webpack-starter-for-designers",
   "version": "1.0.0",
-  "description": "",
+  "description": "An Webpack Starter kit for designers who want to kick off projects using Webpack ( Webpack, Webpack dev server, Babel, ES6+, PostCSS )",
   "main": "webpack.config.js",
   "scripts": {
     "start": "webpack-dev-server --inline"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://armend90@bitbucket.org/lumibet/frontend-site.git"
+    "url": "https://github.com/ArmendGashi/Webpack-starter-for-designers.git"
   },
   "keywords": [
     "frontend",
-    "lumibet",
-    "website",
+    "webpack",
     "js",
+    "webpack starter",
     "css",
     "postcss"
   ],
+  "bugs": {
+    "url": "https://github.com/ArmendGashi/Webpack-starter-for-designers/issues"
+  },
   "author": "Armend Gashi <armend90@gmail.com>",
   "license": "MIT",
-  "homepage": "https://bitbucket.org/lumibet/frontend-site#readme",
+  "homepage": "https://github.com/ArmendGashi/Webpack-starter-for-designers",
   "devDependencies": {
     "autoprefixer": "^6.1.0",
     "babel-core": "^6.1.2",
