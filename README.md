@@ -1,4 +1,5 @@
 # Webpack starter for designers
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 ###### An Webpack Starter kit for designers who want to kick off projects using Webpack ( **Webpack**, **Webpack dev server**, **Babel**, **ES6+**, **PostCSS** ).
 
 Styles are broken down into the following groups: **Base**, **Layout**, **Modules**, **State**, **Libs**, **Utilities**.
