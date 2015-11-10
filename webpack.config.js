@@ -9,6 +9,14 @@ var pathConfig = {
 }
 
 
+// definePlugin takes raw strings and inserts them, so you can put strings of JS if you want.
+var definePlugin = new webpack.DefinePlugin({
+  __DEV__: JSON.stringify(JSON.parse(process.env.BUILD_DEV || 'true')),
+  __PRERELEASE__: JSON.stringify(JSON.parse(process.env.BUILD_PRERELEASE || 'false'))
+});
+
+
+
 // PostCSS
 var autoprefixer = require('autoprefixer');
 var postcssUse = require('postcss-use');
@@ -34,46 +42,51 @@ module.exports = {
       }
     ],
     loaders: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader'
-      },
-      {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader')
-      },
-      {
-        test: /\.woff$/,
-        loader: 'file-loader?name=/assets/fonts/[name].[ext]'
-      },
-      {
-        test: /.*\.(gif|png|jpe?g|svg)$/i,
-        loaders: [
-        'file?hash=sha512&digest=hex&name=/assets/img/[hash].[ext]',
-        'image-webpack?{progressive:true, optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}}'
-        ]
+    {
+      test: /\.js$/,
+      exclude: /node_modules/,
+      loader: 'babel-loader',
+      query: {
+        plugins: ['transform-runtime'],
+        presets: ['es2015', 'react'],
       }
+    },
+    {
+      test: /\.css$/,
+      loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader')
+    },
+    {
+      test: /\.woff$/,
+      loader: 'file-loader?name=/assets/fonts/[name].[ext]'
+    },
+    {
+      test: /.*\.(gif|png|jpe?g|svg)$/i,
+      loaders: [
+      'file?hash=sha512&digest=hex&name=/assets/img/[hash].[ext]',
+      'image-webpack?{progressive:true, optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}}'
+      ]
+    }
     ]
   },
   postcss: function (webpack) {
     return [
-      postcssImport({
-        addDependencyTo: webpack
-      }),
-      autoprefixer({
-        browsers: ['last 2 versions']
-      }),
-      postcssUse({ modules: [
-        'lost'
+    postcssImport({
+      addDependencyTo: webpack
+    }),
+    autoprefixer({
+      browsers: ['last 2 versions']
+    }),
+    postcssUse({ modules: [
+      'lost'
       ]}),
-    ];
+    ]
   },
   eslint: {
     configFile: '.eslintrc'
   },
   plugins: [
-    new ExtractTextPlugin('./css/styles.css')
+    new ExtractTextPlugin('./css/styles.css'),
+    definePlugin
   ],
   resolve: {
     extensions: ['', '.js', '.jsx', '.css']
