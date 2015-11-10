@@ -35,7 +35,7 @@ _Make your own folder structure._
 
 
 #### Enable PostCSS plugins
-Enable plugins directly in CSS using [postcss-use](https://github.com/postcss/postcss-use "PostCSS-use url"), also before you use dont forget to add it on ``webpack.config.js`` see line:79 how in postcssUse.
+Enable plugins directly in CSS using [postcss-use](https://github.com/postcss/postcss-use "PostCSS-use url"), also before you use dont forget to add it on ``webpack.config.js`` see ``line:79`` how in ``postcssUse``.
 
 
 #### Feature flags
