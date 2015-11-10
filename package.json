@@ -4,7 +4,10 @@
   "description": "An Webpack Starter kit for designers who want to kick off projects using Webpack ( Webpack, Webpack dev server, Babel, ES6+, PostCSS )",
   "main": "webpack.config.js",
   "scripts": {
-    "start": "webpack-dev-server --inline"
+    "start": "webpack-dev-server --inline",
+    "dev": "BUILD_DEV=1 webpack-dev-server --inline",
+    "build": "BUILD_PRERELEASE=1 webpack-dev-server --inline",
+    "prod": "webpack -p"
   },
   "repository": {
     "type": "git",
