@@ -50,7 +50,7 @@ We have code we want to gate only to our dev environments (like logging) and our
       showSecretFeature();
     }
   
-Then you can build with BUILD_DEV=1 BUILD_PRERELEASE=1 webpack from the console. Note that since webpack -p runs uglify dead-code elimination, anything wrapped in one of these blocks will be stripped out, so you won't leak secret features or strings.
+Then you can build with ``BUILD_DEV=1 or npm run dev`` ``BUILD_PRERELEASE=1 or npm run build`` webpack from the console. Note that since ``webpack -p or npm run prod`` runs uglify dead-code elimination, anything wrapped in one of these blocks will be stripped out, so you won't leak secret features or strings.
 
 
 
