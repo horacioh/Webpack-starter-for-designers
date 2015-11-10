@@ -26,11 +26,32 @@ _Make your own folder structure._
 #### Features
 
 * Live reloading with Webpack-dev-server
-* Babel
+* Babel 6
 * ESLint
 * PostCSS
 * Autoprefixer
 * Image Minification
+* Feature flags
+
+
+#### Enable PostCSS plugins
+Enable plugins directly in CSS using [postcss-use](https://github.com/postcss/postcss-use "PostCSS-use url"), also before you use dont forget to add it on ``webpack.config.js`` see line:79 how in postcssUse.
+
+
+#### Feature flags
+
+We have code we want to gate only to our dev environments (like logging) and our internal dogfooding servers (like unreleased features we're testing with employees). In your code, refer to magic globals:
+
+    if ( '__DEV__' ) {
+      console.warn('Extra logging');
+    }
+    // ...
+    if ( '__PRERELEASE__' ) {
+      showSecretFeature();
+    }
+  
+Then you can build with BUILD_DEV=1 BUILD_PRERELEASE=1 webpack from the console. Note that since webpack -p runs uglify dead-code elimination, anything wrapped in one of these blocks will be stripped out, so you won't leak secret features or strings.
+
 
 
 
