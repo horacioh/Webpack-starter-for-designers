@@ -42,11 +42,11 @@ Enable plugins directly in CSS using [postcss-use](https://github.com/postcss/po
 
 We have code we want to gate only to our dev environments (like logging) and our internal dogfooding servers (like unreleased features we're testing with employees). In your code, refer to magic globals:
 
-    if ( '__DEV__' ) {
+    if ( __DEV__ ) {
       console.warn('Extra logging');
     }
     // ...
-    if ( '__PRERELEASE__' ) {
+    if ( __PRERELEASE__ ) {
       showSecretFeature();
     }
   
