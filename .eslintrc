@@ -2,7 +2,15 @@
   "ecmaFeatures": {
   "blockBindings": true,
   "forOf": true,
-  "jsx": true
+  "modules": true,
+  "jsx": true,
+  "defaultParams": true,
+  "spread": true,
+  "globalReturn": true,
+  "classes", true,
+  "arrowFunctions": true,
+  "templateStrings": true,
+  "objectLiteralShorthandMethods": true
   },
   "rules": {
      "semi": 2
