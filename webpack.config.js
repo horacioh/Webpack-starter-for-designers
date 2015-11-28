@@ -5,7 +5,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 // Path Config
 var pathConfig = {
   context: path.resolve('dev'),
-  assetsPath: 'public'
+  assetsPath: __dirname + '/public/assets/'
 }
 
 
@@ -28,6 +28,7 @@ module.exports = {
   entry: ['./css/styles', './js/App'],
   output: {
     path: pathConfig.assetsPath,
+    publicPath: '/assets/',
     filename: './js/bundle.js'
   },
   devServer: {
@@ -58,7 +59,7 @@ module.exports = {
      {
       test: /.*\.(woff|woff2|ttf|eot)$/i,
       exclude: /node_modules/,
-      loader: 'url-loader?limit=10000'
+      loader: 'url-loader'
     },
     {
       test: /.*\.(gif|png|jpe?g|svg)$/i,
