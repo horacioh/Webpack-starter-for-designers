@@ -4,8 +4,8 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 // Path Config
 var pathConfig = {
-  context: __dirname + '/dev',
-  assetsPath: path.resolve(__dirname + '/public')
+  context: path.resolve('dev'),
+  assetsPath: 'public'
 }
 
 
@@ -55,14 +55,16 @@ module.exports = {
       test: /\.css$/,
       loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader')
     },
-    {
-      test: /\.woff$/,
-      loader: 'file-loader?name=/assets/fonts/[name].[ext]'
+     {
+      test: /.*\.(woff|woff2|ttf|eot)$/i,
+      exclude: /node_modules/,
+      loader: 'url-loader?limit=10000'
     },
     {
       test: /.*\.(gif|png|jpe?g|svg)$/i,
+      exclude: /node_modules/,
       loaders: [
-      'file?hash=sha512&digest=hex&name=/assets/img/[hash].[ext]',
+      'url-loader?limit=10000',
       'image-webpack?{progressive:true, optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}}'
       ]
     }
